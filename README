@@ -1,0 +1,10 @@
+Functions for sample survey planning.
+
+## Installation ##
+
+# Stable version from CRAN
+install.packages("surveyplanning")
+
+# Development version from github
+library(devtools)
+install_github("CSBLatvia/surveyplanning/surveyplanning")

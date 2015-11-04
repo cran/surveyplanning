@@ -1,0 +1,12 @@
+b46cca88098862defd50fc2b7cb8d336 *DESCRIPTION
+b315b7f1bfe508e92823e8bbbcd3b7b3 *NAMESPACE
+8a431768a2455d6cdc321099240483a3 *R/expsize.R
+fa60b51c8c5d6eb61fe963a0cce4baf7 *R/expvar.R
+6ae0339db9ac15526bb016e4215347d0 *R/optsize.R
+af95abbd1c8ebbb126c604e7a927c42a *R/s2.R
+8f763776f6bb92a4220b776b01d896b5 *README
+0a881ba543b60bfc94d8b3604f1aa0fa *man/expsize.Rd
+d04aab440231188ac6b135d241973e10 *man/expvar.Rd
+17ecdf52f2d4b2eaa68c0a81353848fd *man/optsize.Rd
+2b28c86b03e89247366494df9d084eb8 *man/s2.Rd
+767669698a2a1abff7cf876ee5002674 *man/surveyplanning-package.Rd
