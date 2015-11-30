@@ -130,6 +130,3 @@ dom_optimal_allocation(id, Dom, H, Y, Rh=NULL,
 }
 
 \keyword{surveyplanning}
-
-
-
