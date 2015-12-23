@@ -8,7 +8,7 @@ The function computes optimal sample size allocation over strata.
 }
 
 \usage{
-optsize(H, n, poph, s2h = NULL, Rh = NULL, dataset = NULL)
+optsize(H, n, poph, s2h = NULL, Rh = NULL, deffh=NULL, dataset = NULL)
 }
 
 \arguments{
@@ -22,6 +22,8 @@ optsize(H, n, poph, s2h = NULL, Rh = NULL, dataset = NULL)
 \item{s2h}{The expected population variance \eqn{S^2} for variables of interest in each stratum (optional). If not defined, it is assumed to be 1 in each stratum. Object convertible to \code{data.table}, variable name as character vector, or column numbers.}
 
 \item{Rh}{The expected response rate in each stratum (optional). If not defined, it is assumed to be 1 in each stratum (full-response). Object convertible to one-column \code{data.table}, variable name as character, or column number.}
+
+\item{deffh}{The expected design effect for the estimate of variable (optional). If not defined, it is assumed to be 1 for each variable in each stratum. If is defined, then variables is defined the same arrangement as \code{Yh}. Object convertible to \code{data.table}, variable name as character vector, or column numbers.}
 
 \item{dataset}{Optional survey data object convertible to \code{data.table} with one row for each stratum.}
 }
@@ -40,12 +42,14 @@ If \code{Rh} is not defined, the sample allocation will be calculated as Neyman 
        \code{H} - stratum, \cr
        \code{variable} - the name of variable for population variance \eqn{S^2}, \cr
        \code{s2h} - population variance \eqn{S^2}, \cr
-       \code{Rh} - response rate, \cr
+       \code{Rh} - the expectedresponse rate, \cr
+       \code{deffh} - the expected design effect, \cr
        \code{poph} - population size, \cr
+       \code{deffh} - design effect, \cr
        \code{nh} - sample size.
 }
 
-\seealso{\code{\link{expsize}}, \code{\link{optsize}}}
+\seealso{\code{\link{expsize}}, \code{\link{dom_optimal_allocation}}}
 
 \examples{
 

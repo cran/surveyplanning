@@ -19,7 +19,7 @@ expvar(Yh, Zh=NULL, H, s2h, nh, poph, Rh = NULL, deffh = NULL, Dom = NULL, datas
 
 \item{H}{The stratum variable. One dimensional object convertible to one-column \code{data.table}, variable name as character, or column number.}
 
-\item{s2h}{The expected population variance \eqn{S^2} for variables of interest in each stratum. Object convertible to \code{data.table}, variable name as character vector, or column numbers.}
+\item{s2h}{The expected population variance \eqn{S^2} for variables of interest in each stratum. Variables is defined the same arrangement as \code{Yh}. Object convertible to \code{data.table}, variable name as character vector, or column numbers.}
 
 \item{nh}{Sample size in each stratum. One dimensional object convertible to one-column \code{data.table}, variable name as character, or column number.}
 
@@ -27,7 +27,7 @@ expvar(Yh, Zh=NULL, H, s2h, nh, poph, Rh = NULL, deffh = NULL, Dom = NULL, datas
 
 \item{Rh}{The expected response rate in each stratum (optional). If not defined, it is assumed to be 1 in each stratum (full-response). Object convertible to one-column \code{data.table}, variable name as character, or column number.}
 
-\item{deffh}{The expected design effect for the estimates of totals (optional). If not defined, it is assumed to be 1 for each variable in each stratum. Object convertible to \code{data.table}, variable name as character vector, or column numbers.}
+\item{deffh}{The expected design effect for the estimates of totals (optional). If not defined, it is assumed to be 1 for each variable in each stratum. If is defined, then variables is defined the same arrangement as \code{Yh}. Object convertible to \code{data.table}, variable name as character vector, or column numbers.}
 
 \item{Dom}{Optional variables used to define population domains. Only domains as unions of strata can be defined. If supplied, estimated precision is calculated for each domain. An object convertible to \code{data.table}, variable names as character vector, or column numbers.}
 
@@ -42,10 +42,10 @@ expvar(Yh, Zh=NULL, H, s2h, nh, poph, Rh = NULL, deffh = NULL, Dom = NULL, datas
     \code{variableY} - the name of variable of interest, \cr
     \code{variableZ} - the name of optional variable of denominator for the expected ratio estimation, \cr
     \code{estim} - total value, \cr
-    \code{deffh} - design effect, \cr
+    \code{deffh} - the expected design effect, \cr
     \code{s2h} - population variance \eqn{S^2}, \cr
     \code{nh} - sample size, \cr
-    \code{Rh} - response rate, \cr
+    \code{Rh} - the expected response rate, \cr
     \code{poph} - population size, \cr
     \code{nrh} - expected number of respondents, \cr
     \code{var} - expected variance, \cr
@@ -76,7 +76,7 @@ expvar(Yh, Zh=NULL, H, s2h, nh, poph, Rh = NULL, deffh = NULL, Dom = NULL, datas
     \code{cv} - the expected coeficient of variance.}
 }
 
-\seealso{\code{\link{expsize}}, \code{\link{optsize}}}
+\seealso{\code{\link{expsize}}, \code{\link{optsize}}, \code{\link{dom_optimal_allocation}}}
 
 \examples{
 

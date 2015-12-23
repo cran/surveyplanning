@@ -1,3 +1,4 @@
+
 \name{expsize}
 
 \alias{expsize}
@@ -37,10 +38,10 @@ A \code{data.table} is returned by the function, whith variables:
        \code{H} - stratum, \cr
        \code{variable} - the name of variable of interest, \cr
        \code{estim} - total value, \cr
-       \code{deffh} - design effect, \cr
+       \code{deffh} - the expected design effect, \cr
        \code{s2h} - population variance \eqn{S^2}, \cr
        \code{CVh} - the expected coefficient of variation, \cr
-       \code{Rh} - response rate, \cr
+       \code{Rh} - the expected response rate, \cr
        \code{poph} - population size, \cr
        \code{nh} - minimal sample size to achieve defined precision (CV).
 }

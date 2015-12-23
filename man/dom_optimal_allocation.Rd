@@ -8,10 +8,10 @@ The function computes optimal sample size allocation over strata and domain for 
 }
 
 \usage{
-dom_optimal_allocation(id, Dom, H, Y, Rh=NULL,
-                                        indicator, sup_w, sup_cv,
-                                        min_size=3, correction_before=FALSE,
-                                        dataset=NULL)
+dom_optimal_allocation(id, Dom, H, Y, Rh=NULL, deffh=NULL,
+                               indicator, sup_w, sup_cv,
+                               min_size=3, correction_before=FALSE,
+                               dataset=NULL)
 }
 
 \arguments{
@@ -25,6 +25,8 @@ dom_optimal_allocation(id, Dom, H, Y, Rh=NULL,
 \item{Y}{Variable of interest. Object convertible to \code{data.table} or variable names as character, column numbers.}
 
 \item{Rh}{The expected response rate in each stratum (optional). If not defined, it is assumed to be 1 in each stratum (full-response). Object convertible to one-column \code{data.table}, variable name as character, or column number.}
+
+\item{deffh}{The expected design effect for the estimate of variable (optional). If not defined, it is assumed to be 1 for each variable in each stratum. If is defined, then variables is defined the same arrangement as \code{Yh}. Object convertible to \code{data.table}, variable name as character vector, or column numbers.}
 
 \item{indicator}{Variable for detection fully surveyed units. Object convertible to \code{data.table} or variable names as character, column numbers.}
 
@@ -49,7 +51,8 @@ dom_optimal_allocation(id, Dom, H, Y, Rh=NULL,
         \code{Dom} - optional variables used to define population domains, \cr
         \code{H} - the unit stratum variable, \cr
         \code{Y} - variable of interest, \cr
-        °code{Rh} - the expected response rate in each stratum, \cr
+        \code{Rh} - the expected response rate in each stratum, \cr
+        \code{deffh} - the expected design effect, \cr
         \code{indicator} - variable for full surveys, \cr
         \code{sup_w} - variable for weight limit in domain of stratum, \cr
         \code{sup_cv} - Variable for maximum coeficient of variation, \cr
@@ -86,10 +89,11 @@ dom_optimal_allocation(id, Dom, H, Y, Rh=NULL,
         \code{H} - stratum, \cr
         \code{variable} - the name of variable of interest, \cr
         \code{estim} - total value, \cr
-        \code{deffh} - design effect, \cr
+        \code{deffh} - the expected design effect, \cr
         \code{s2h} - population variance \eqn{S^2}, \cr
         \code{nh} - sample size, \cr
-        \code{Rh} - response rate, \cr
+        \code{Rh} - the expected response rate, \cr
+        \code{deffh} - the expected design effect, \cr
         \code{poph} - population size, \cr
         \code{nrh} - expected number of respondents, \cr
         \code{var} - expected variance, \cr
