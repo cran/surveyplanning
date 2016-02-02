@@ -1,6 +1,6 @@
-0563f7131573dbd4f4b18d8a7d840a14 *DESCRIPTION
+e6cc3e0492730f2da984fec661e290ec *DESCRIPTION
 0a8e044c93cb7518a321fadd68c714cd *NAMESPACE
-be443b9409e47243c512f148211dc9db *R/dom_optimal_allocation.R
+ae27a5e5151f18454a9c8916ea9ca076 *R/dom_optimal_allocation.R
 b7cd6b799e58e49dcceea7e540b06259 *R/expsize.R
 739e8272e877779cf40dbd7241a518e2 *R/expvar.R
 d0318e6689f8b66753469cdb0a80147a *R/optsize.R
@@ -11,4 +11,4 @@ f4943d72e5abfeeb576befda4648feed *README
 5b37e86f36e918c8cc3fe106f674f863 *man/expvar.Rd
 98cc5cbf32a71a1d13e5e353425658ee *man/optsize.Rd
 2b28c86b03e89247366494df9d084eb8 *man/s2.Rd
-5e3916bd99f37086a356da04693d1b02 *man/surveyplanning-package.Rd
+6df6f3c95440881a85384e2ecca971cc *man/surveyplanning-package.Rd
