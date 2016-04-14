@@ -13,7 +13,7 @@ expsize <- function(Yh, H, s2h, poph, Rh = NULL, deffh = NULL, CVh,
           if (min(H %in% names(dataset))==1) H <- dataset[, H, with=FALSE]}
       if(!is.null(s2h)) {
           if (min(s2h %in% names(dataset))!=1) stop("'s2h' does not exist in 'dataset'!")
-          if (min(s2h %in% names(dataset))==1) S2h <- dataset[, s2h, with=FALSE] }
+          if (min(s2h %in% names(dataset))==1) s2h <- dataset[, s2h, with=FALSE] }
       if(!is.null(CVh)) {
           if (min(CVh %in% names(dataset))!=1) stop("'CVh' does not exist in 'dataset'!")
           if (min(CVh %in% names(dataset))==1) CVh <- dataset[, CVh, with=FALSE] }
@@ -37,7 +37,7 @@ expsize <- function(Yh, H, s2h, poph, Rh = NULL, deffh = NULL, CVh,
   if (is.null(names(Yh))) stop("'Yh' must be colnames")
   Yh <- data.table(sapply(Yh, as.numeric))
 
-  s2h <- data.table(S2h, check.names=TRUE)
+  s2h <- data.table(s2h, check.names=TRUE)
   if (nrow(s2h) != n) stop("'s2h' length must be equal with 'Yh' row count")
   if (ncol(s2h) != m) stop("'s2h' and 'Yh' must be equal column count")
   if (any(is.na(s2h))) stop("'s2h' has unknown values")
@@ -130,6 +130,6 @@ expsize <- function(Yh, H, s2h, poph, Rh = NULL, deffh = NULL, CVh,
   Yh <- deffh <- s2h <- NULL
 
   resulth[, nh := poph ^ 2 * s2h * deffh /
-            (Rh * ((estim * CVh/100) ^ 2 + poph * s2h  * deffh))]
+                    (Rh * ((estim * CVh/100) ^ 2 + poph * s2h  * deffh))]
   return(resulth)
 }
