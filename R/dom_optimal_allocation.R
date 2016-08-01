@@ -6,8 +6,8 @@ dom_optimal_allocation <- function(id, Dom, H, Y, Rh=NULL,
 
   if (!any(is.logical(correction_before))|length(correction_before) != 1)
                             stop("'corrected_before' must be the logical value")
-  if (length(min_size) != 1 | any(!is.numeric(min_size) | min_size < 0)) {
-          stop("'min_size' must be a numeric value larger than 0")  }
+  if( length(min_size)!=1 | !any(min_size>0 | abs(min_size - round(min_size)) < .Machine$double.eps)) 
+                            stop("'min_size' must be a integer value greater than 0")
 
   if (!is.null(dataset)) {
       dataset <- data.table(dataset)
