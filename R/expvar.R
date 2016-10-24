@@ -2,7 +2,7 @@ expvarh <- function(s2h, nh, poph, Rh = 1, deffh = 1) {
                      nrh <- round(nh * Rh)
                      nrh <- ifelse(nrh < 1, 1, nrh)
                      var <- poph ^ 2 * (1 - nrh / poph) / nrh * s2h * deffh
-                     var
+                     return(var)
   }
 
 expvar <- function(Yh, Zh=NULL, H, s2h, nh, poph, 
@@ -179,12 +179,12 @@ expvar <- function(Yh, Zh=NULL, H, s2h, nh, poph,
 
   result <-  resultDom[, lapply(.SD, sum, na.rm = TRUE), keyby = vals,
                     .SDcols = c(vars, "poph", "nh", "nrh", "var")]
-  if (!is.null(result$Zh)) { result[, estim:=Yh/Zh]
-    } else result[, estim:=Yh]
+  if (!is.null(result$Zh)) { result[, estim := Yh/Zh]
+    } else result[, estim := Yh]
   result[, se := sqrt(var)]
-  result[, cv := ifelse(estim!=0, 100 * se / estim, NA)]
+  result[, cv := ifelse(estim != 0, 100 * se / estim, NA)]
   
   list(resultDomH = resulth,
         resultDom = resultDom,
-         result=result)
+           result = result)
 }
