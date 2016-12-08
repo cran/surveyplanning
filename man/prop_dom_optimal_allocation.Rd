@@ -1,22 +1,25 @@
-\name{ratio_dom_optimal_allocation}
-\alias{ratio_dom_optimal_allocation}
+\name{prop_dom_optimal_allocation}
+\alias{prop_dom_optimal_allocation}
 
-\title{Optimal sample size allocation for ratio}
+\title{Optimal sample size allocation for proportion}
 
 \description{
-The function computes optimal sample size allocation over strata and domain for ratio.
+The function computes optimal sample size allocation over strata and domain for proportion.
 }
 
 \usage{
-ratio_dom_optimal_allocation(H, Dom, poph, Rh, deffh,
-                             se_max = 0.5, prop = 0.5,
-                             min_size = 3, step = 1,
-                             dataset = NULL)
+prop_dom_optimal_allocation(H, Dom, poph,
+                            Rh, deffh,
+                            se_max = 0.5,
+                            prop = 0.5,
+                            min_size = 3,
+                            step = 1,
+                            dataset = NULL)
 }
 
 \arguments{
 
-\item{H}{The unit stratum variable. One dimensional object convertible to one-column \code{data.table} or variable name as character, column number.}
+\item{H}{The stratum variable. One dimensional object convertible to one-column \code{data.table} or variable name as character, column number.}
 
 \item{Dom}{Variables used to define population domains. An object convertible to \code{data.table} or variable names as character vector, column numbers.}
 
@@ -66,11 +69,15 @@ ratio_dom_optimal_allocation(H, Dom, poph, Rh, deffh,
 
 \examples{
 
-#vars <- dom_optimal_allocation(id, dom, H, Y, indicator, 
-#                                         sup_w, sup_cv, min_size=3,
-#                                         correction_before=FALSE,
-#                                         dataset=data)
-#vars
+data(eusilc)
+eusilc <- data.table(eusilc)
+data <- eusilc[, .(poph = sum(db090)), by = c("db040")]
+data[, dom := "1"]
+res <- prop_dom_optimal_allocation(H = "db040", Dom = "dom",
+                                    poph = "poph", Rh = NULL, 
+                                    deffh = NULL, se_max = 0.5,
+                                    prop = 0.5, min_size = 3,
+                                    step = 1, dataset = data)
 }
 
 \keyword{surveyplanning}
